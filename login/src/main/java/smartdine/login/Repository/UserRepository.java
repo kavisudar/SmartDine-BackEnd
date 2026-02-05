@@ -5,6 +5,13 @@ import smartdine.login.Model.User;
 
 import java.util.Optional;
 
-public interface UserRepository extends JpaRepository<User,Long> {
-    Optional<org.apache.catalina.User> findByUsername(String username);
+public interface UserRepository extends JpaRepository<User, Long> {
+
+    Optional<User> findByUsername(String username);
+
+    boolean existsByUsername(String username);
+
+    boolean existsByEmail(String email);
+
+    Optional<User> findByEmail(String email);
 }
